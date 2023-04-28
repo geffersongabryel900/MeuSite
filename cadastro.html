@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <script> //CPF FICAR COM PONTOS E TRAÇO, ORGANIZADO
+    function mascara_cpf() {
+    var cpf = document.getElementById('CPF')
+    if(cpf.value.length == 3 || cpf.value.length == 7) {
+        cpf.value += "."
+    } else if(cpf.value.length == 11){
+        cpf.value += "-"
+    }
+}
+    </script>
+</head>
+
+<body> 
+    <div class="container"> <!-- Container de organização visual horizontal-->
+        <div class="main-image"> <!-- PNG no cadasrtro -->
+            <img src="Imagens/acai.png" alt="">
+        </div>
+        <div class="main"> <!-- Container para a parte do cadastro -->
+            <main>
+                <div class="main-header"> <!-- Onde cada coisa irar ficar -->
+                    <div class="title"> <!-- Titulo -->
+                        <h1>Cadastre-se</h1>
+                    </div>
+                    <div class="login-button"> <!-- Desing do Botão -->
+                        <button class="login-button"><a href="login.html">Entrar</a></button> <!-- Quem tiver cadastrado entra automaticamente no login -->
+                    </div>
+                </div>
+
+                <div class="input-group" id="form"> <!-- Organização dos botões já com limitações de espaço -->
+
+                    <div class="input-box"> <!-- Design da barra de escrever -->
+                    <label for="nome">Nome</label>
+                        <input id="nome" type="text" name="Nome" placeholder="Digite seu nome" autocomplete="off" minlength="3" required>
+                        <p class= "error" id="alerta_nome"></p> <!-- Mostra o erro por não preencher ou faltou algo -->
+                    </div>
+
+                    <div class="input-box"> <!-- Design da barra de escrever -->
+                    <label for="CPF">CPF</label>
+                        <input id="CPF" type="CPF" name="CPF" placeholder="Digite seu CPF" maxlength="14" autocomplete="off" onkeyup="mascara_cpf()" required>
+                        <p class= "error" id="alerta_CPF"></p> <!-- Mostra o erro por não preencher ou faltou algo -->
+                    </div>
+                    <div class="input-box"> <!-- Design da barra de escrever -->
+                    <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" autocomplete="off" placeholder="Digite seu e-mail" required>
+                        <p class= "error" id = "alerta_email"></p> <!-- Mostra o erro por não preencher ou faltou algo -->
+                    </div>
+
+                    <div class="input-box"> <!-- Design da barra de escrever -->
+                    <label for="date">Data de Nascimento</label>
+                        <input id="date" type="date" name="date" autocomplete="off" placeholder="XX/XX/XXXX" required>
+                    </div>
+
+                    <div class="input-box"> <!-- Design da barra de escrever -->
+                    <label for="senha">Senha</label>
+                        <input id="senha" type="password" name="senha" autocomplete="off" minlength="6" maxlength="10" placeholder="Digite sua senha" required>
+                        <p class= "error" id="alerta_senha"></p> <!-- Mostra o erro por não preencher ou faltou algo -->
+                    </div>
+
+                </div>
+
+                <div class="continue-button">
+                    <button onclick="cadastrar()" id="cadastrar">Continuar</button> <!-- Interliga o script de cadastro, onde também irá salvar cada coisa -->
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
